@@ -39,6 +39,8 @@ public class Main {
                 x = 1 might be written in L1 cache of the core1 executing thread 1,
                 while core2 executing the thread 2 has not yet received x = 1 in its L1
                 (via coherence protocol - MESI)
+
+             Sequential consistency violation due to data races.
              */
 
             t1.start();
