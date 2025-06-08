@@ -31,8 +31,14 @@ public class Main {
             Each thread has:
             1) write operation
             2) read operation
-            from the perspective of one thread, they might be reordered
-            so that the read appears to be before write!
+
+            1. Instruction reordering:
+                From the perspective of one thread, they might be reordered,
+                so that the read happens before write!
+            2. Cache visibility / cache coherence latency
+                x = 1 might be written in L1 cache of the core1 executing thread 1,
+                while core2 executing the thread 2 has not yet received x = 1 in its L1
+                (via coherence protocol - MESI)
              */
 
             t1.start();
