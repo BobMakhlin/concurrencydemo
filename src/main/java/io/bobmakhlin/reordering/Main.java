@@ -1,4 +1,4 @@
-package io.bobmakhlin;
+package io.bobmakhlin.reordering;
 
 public class Main {
     static int x = 0;
@@ -26,6 +26,14 @@ public class Main {
                 y = 1;
                 r2 = x;
             });
+
+            /*
+            Each thread has:
+            1) write operation
+            2) read operation
+            from the perspective of one thread, they might be reordered
+            so that the read appears to be before write!
+             */
 
             t1.start();
             t2.start();
