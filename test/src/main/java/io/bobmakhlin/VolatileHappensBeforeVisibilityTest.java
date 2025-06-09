@@ -1,14 +1,13 @@
-package io.bobmakhlin.safepublisher;
+package io.bobmakhlin;
 
 import org.openjdk.jcstress.annotations.*;
-import org.openjdk.jcstress.infra.results.II_Result;
 import org.openjdk.jcstress.infra.results.I_Result;
 
 @JCStressTest
 @Description("Triggers memory reordering")
 @Outcome(id = "-1", expect = Expect.ACCEPTABLE, desc = "")
 @Outcome(id = "11", expect = Expect.ACCEPTABLE, desc = "Returned correct value")
-public class SafePublisherJCStressTest {
+public class VolatileHappensBeforeVisibilityTest {
     @Actor
     public final void actor1(DataHolder dataHolder) {
         dataHolder.writer();

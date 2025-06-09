@@ -1,4 +1,4 @@
-package io.bobmakhlin.eventualvisibility;
+package io.bobmakhlin;
 
 import org.openjdk.jcstress.annotations.*;
 
@@ -9,7 +9,7 @@ import static org.openjdk.jcstress.annotations.Expect.ACCEPTABLE_INTERESTING;
 @Outcome(id = "TERMINATED", expect = ACCEPTABLE, desc = "Gracefully finished")
 @Outcome(id = "STALE", expect = ACCEPTABLE_INTERESTING, desc = "Test is stuck")
 @State
-public class PlainSpin {
+public class NonVolatileSpinLoopTest {
     boolean ready; // Add volatile to fix!
 
     @Actor

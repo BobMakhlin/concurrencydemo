@@ -15,7 +15,7 @@ public class Main {
             x = 0;
             y = 0;
             r1 = -1;
-            r2 = -1;
+            r2 = -1;1
 
             Thread t1 = new Thread(() -> {
                 x = 1;

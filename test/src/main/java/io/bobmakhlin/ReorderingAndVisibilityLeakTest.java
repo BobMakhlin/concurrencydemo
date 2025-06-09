@@ -1,16 +1,14 @@
-package io.bobmakhlin.safepublisher;
+package io.bobmakhlin;
 
 import org.openjdk.jcstress.annotations.*;
-import org.openjdk.jcstress.infra.results.III_Result;
 import org.openjdk.jcstress.infra.results.II_Result;
-import org.openjdk.jcstress.infra.results.I_Result;
 
 @JCStressTest
 @Description("Triggers memory reordering")
 @Outcome(id = {"-1, -1", "-1, 6", "5, -1", "0, -1", "-1, 0"}, expect = Expect.ACCEPTABLE, desc = "Not initialized yet")
 @Outcome(id = "5, 6", expect = Expect.ACCEPTABLE, desc = "Returned correct value")
 @Outcome(id = {"0, 0", "0, 6", "5, 0"}, expect = Expect.ACCEPTABLE_INTERESTING, desc = "Initialized but returned default value")
-public class UnsafePublisherJCStressTest {
+public class ReorderingAndVisibilityLeakTest {
     @Actor
     public final void actor1(DataHolder dataHolder) {
         dataHolder.writer();
